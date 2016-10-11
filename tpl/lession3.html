@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+    <title>vue lession 3</title>
+    <!--#include virtual="/sinclude/wp/{%=o.webpackConfig.viewName%}/cssi/{%=o.htmlWebpackPlugin.options.title%}.html" -->
+    <style media="screen">
+
+    </style>
+</head>
+<body>
+<div id="app">
+    <h3>组件1</h3>
+    <my-component></my-component>
+    <child-component></child-component>
+    <quick-component></quick-component>
+    <prop-component msg="你好，前端" :msg2="gg"></prop-component>
+    <h3>复杂参数</h3>
+    <p>
+        {{ styleObj | json }}
+    </p>
+    <prop2-component :style="styleObj"></prop2-component>
+</div>
+<!--#include virtual="/sinclude/wp/{%=o.webpackConfig.viewName%}/jsi/{%=o.htmlWebpackPlugin.options.title%}.html" -->
+</body>
+</html>

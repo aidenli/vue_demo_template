@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+    <title>vue lession 1</title>
+    <!--#include virtual="/sinclude/wp/{%=o.webpackConfig.viewName%}/cssi/{%=o.htmlWebpackPlugin.options.title%}.html" -->
+    <style media="screen">
+        .class-a{
+            color: red;
+        }
+        .class-b{
+            color:blue;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <h3>数据绑定</h3>
+    <div>{{msg}}</div>
+    <p>x:{{x}}</p>
+    <p>x + 10 = {{ x + 10}}</p>
+    <p>
+        <input v-model="x" number>
+    </p>
+
+    <h3>计算属性：使用computed属性定义</h3>
+    <p>
+        y = x * 3 + 2，那么y的值是：{{y}}
+    </p>
+
+    <h3>绑定class</h3>
+    <div class="static" v-bind:class="{'class-a': isA, 'class-b': isB}">
+        通过绑定简单数值来实现动态切换class
+    </div>
+    <p>
+        <button type="button" name="button" v-on:click="toggleClass">切换class</button>
+    </p>
+
+    <h3>绑定一个object对象给class</h3>
+    <div v-bind:class="classObj">
+        绑定数据源名为classObj的对象
+    </div>
+
+    <h3>绑定内联样式 v-bind:style</h3>
+    <div v-bind:style="{color: activeColor, fontSize: fontSize + 'px'}">
+        v-bind:style="{color: activeColor, fontSize: fontSize + 'px'}"
+    </div>
+    <div v-bind:style="styleObject">
+        v-bind:style="styleObject"
+    </div>
+
+    <h3>条件渲染</h3>
+    <p>
+        <label for="toggleif"><input type="checkbox" v-model="showDiv" id="toggleif" />切换条件</label>
+    </p>
+    <div v-if="showDiv" class="class-a">
+        showDiv为true时展示
+    </div>
+    <div v-else class="class-b">
+        showDiv为false时展示
+    </div>
+    <template v-if="showDiv">
+        <p>
+            template标签可以包含多个dom元素
+        </p>
+        <p>
+            showDiv为true时展示
+        </p>
+    </template>
+    <h3>列表渲染</h3>
+    <div class="">
+        <ul>
+            <li v-for="(index, item) in users">
+                {{item.name}}: {{item.age}}
+            </li>
+        </ul>
+    </div>
+    <div class="">
+        <p v-for="item in users">
+            {{item.name}}: {{item.age}}
+        </p>
+    </div>
+</div>
+<!--#include virtual="/sinclude/wp/{%=o.webpackConfig.viewName%}/jsi/{%=o.htmlWebpackPlugin.options.title%}.html" -->
+</body>
+</html>
